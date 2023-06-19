@@ -28,7 +28,8 @@ class MyApp extends StatelessWidget {
         //
         // This works for code too, not just values: Most code changes can be
         // tested with just a hot reload.
-        colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
+        colorScheme: ColorScheme.fromSeed(
+            seedColor: const Color.fromARGB(255, 175, 152, 214)),
         useMaterial3: true,
       ),
       home: const MyHomePage(title: 'First Page'),
@@ -55,6 +56,8 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
+  TextEditingController _textEditingController = TextEditingController();
+  String buttonText = 'click me oWo';
   int _counter = 0;
 
   void _incrementCounter() {
@@ -112,12 +115,42 @@ class _MyHomePageState extends State<MyHomePage> {
               '$_counter',
               style: Theme.of(context).textTheme.headlineMedium,
             ),
-            const TextField(
-              style: TextStyle(fontSize: 12.0),
-              decoration: InputDecoration(
-                labelText: 'Enter text here',
+            SizedBox(
+              width: 200.0,
+              child: TextField(
+                controller: _textEditingController,
+                style: TextStyle(fontSize: 18.0),
+                decoration: InputDecoration(
+                  labelText: 'Enter text here',
+                ),
               ),
             ),
+            Spacer(flex: 1),
+            ElevatedButton(
+              onPressed: () {
+                String text = _textEditingController.text;
+                //print('Button pressed! Text: $text');
+                setState(() {
+                  buttonText = text;
+                });
+                // Action to perform when the button is pressed
+              },
+              child: Text(
+                buttonText,
+                style: TextStyle(
+                  fontSize: 16.0,
+                  fontWeight: FontWeight.bold,
+                  color: Color.fromARGB(204, 152, 27, 214),
+                ),
+              ),
+              style: ElevatedButton.styleFrom(
+                primary: const Color.fromARGB(255, 238, 225, 240),
+                padding: EdgeInsets.symmetric(horizontal: 20.0, vertical: 12.0),
+                shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(8.0),
+                ),
+              ),
+            )
           ],
         ),
       ),
