@@ -113,6 +113,7 @@ class _MyHomePageState extends State<MyHomePage> {
               style: Theme.of(context).textTheme.headlineMedium,
             ),
             const TextField(
+              style: TextStyle(fontSize: 12.0),
               decoration: InputDecoration(
                 labelText: 'Enter text here',
               ),
