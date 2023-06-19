@@ -112,6 +112,11 @@ class _MyHomePageState extends State<MyHomePage> {
               '$_counter',
               style: Theme.of(context).textTheme.headlineMedium,
             ),
+            const TextField(
+              decoration: InputDecoration(
+                labelText: 'Enter text here',
+              ),
+            ),
           ],
         ),
       ),
@@ -120,11 +125,6 @@ class _MyHomePageState extends State<MyHomePage> {
         tooltip: 'Increment',
         child: const Icon(Icons.add),
       ), // This trailing comma makes auto-formatting nicer for build methods.
-      children: TextField(
-        decoration: InputDecoration(
-          labelText: 'Enter your name',
-        ),
-      ),
     );
   }
 }
