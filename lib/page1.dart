@@ -121,21 +121,21 @@ class _MyHomePageState extends State<MyHomePage> {
               onPressed: () {
                 Navigator.push(
                   context,
-                  MaterialPageRoute(builder: (context) => Page2(title: 'Page 2',)),
+                  MaterialPageRoute(builder: (context) => const Page2(title: 'Page 2',)),
                 );
                 // Action to perform when the button is pressed
               },
               style: ElevatedButton.styleFrom(
-                backgroundColor: Color.fromARGB(255, 108, 83, 112),
+                backgroundColor: const Color.fromARGB(255, 108, 83, 112),
                 padding: const EdgeInsets.symmetric(
                     horizontal: 20.0, vertical: 12.0),
                 shape: RoundedRectangleBorder(
                   borderRadius: BorderRadius.circular(8.0),
                 ),
               ),
-              child: Text(
+              child: const Text(
                 'go to page 2',
-                style: const TextStyle(
+                style: TextStyle(
                   fontSize: 16.0,
                   fontWeight: FontWeight.bold,
                   color: Color.fromARGB(204, 255, 255, 255),
