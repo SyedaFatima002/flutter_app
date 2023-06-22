@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:carousel_slider/carousel_slider.dart';
+import 'package:flutter_app/page3.dart';
 import 'package:intl/intl.dart';
 //import 'package:flutter_datetime_picker/flutter_datetime_picker.dart'as dtPicker;
 
@@ -209,6 +210,32 @@ class _Page2State extends State<Page2> {
                 viewportFraction: 0.8,
               ),
           ),
+
+          ElevatedButton(
+              onPressed: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => const Page3(title: 'Page 3',)),
+                );
+              },
+              style: ElevatedButton.styleFrom(
+                backgroundColor: const Color.fromARGB(255, 108, 83, 112),
+                padding: const EdgeInsets.symmetric(
+                    horizontal: 20.0, vertical: 12.0),
+                shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(8.0),
+                ),
+              ),
+              child: const Text(
+                'Page 3',
+                style: TextStyle(
+                  fontSize: 16.0,
+                  fontWeight: FontWeight.bold,
+                  color: Color.fromARGB(204, 255, 255, 255),
+                ),
+              ),
+            )
+
           ],
         ),
       ),
