@@ -55,30 +55,30 @@ class _Page3State extends State<Page3> {
               ),
             ),
 
-            PageView.builder(
-              // itemCount: 2,
-              // pageSnapping: true,
-              // itemBuilder: (context,pagePosition){
-              //   return Container(
-              //     margin: EdgeInsets.all(10),
-              //     child: Image.network(images[pagePosition])
-              //   );
-              // }
-              itemCount: images.length,
-              pageSnapping: true,
-              controller: _pageController,
-              onPageChanged: (page) {
-                setState(() {
-                  activePage = page;
-                });
-              },
-              itemBuilder: (context, pagePosition) {
-                return Container(
-                  margin: EdgeInsets.all(10),
-                  child: Image.network(images[pagePosition]),
-                );
-              }
-            ),
+            // PageView.builder(
+            //   // itemCount: 2,
+            //   // pageSnapping: true,
+            //   // itemBuilder: (context,pagePosition){
+            //   //   return Container(
+            //   //     margin: EdgeInsets.all(10),
+            //   //     child: Image.network(images[pagePosition])
+            //   //   );
+            //   // }
+            //   itemCount: images.length,
+            //   pageSnapping: true,
+            //   controller: _pageController,
+            //   onPageChanged: (page) {
+            //     setState(() {
+            //       activePage = page;
+            //     });
+            //   },
+            //   itemBuilder: (context, pagePosition) {
+            //     return Container(
+            //       margin: EdgeInsets.all(10),
+            //       child: Image.network(images[pagePosition]),
+            //     );
+            //   }
+            // ),
             Container(
               width: double.maxFinite,
               child: CupertinoSlider(
