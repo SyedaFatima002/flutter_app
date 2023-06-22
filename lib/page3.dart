@@ -1,3 +1,4 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_app/page2.dart';
 
@@ -26,7 +27,8 @@ class _Page3State extends State<Page3> {
   ];
   late PageController _pageController;
   int activePage = 0;
-  
+  double _value = 20;
+
   @override
   void initState() {
     super.initState();
@@ -76,6 +78,19 @@ class _Page3State extends State<Page3> {
                   child: Image.network(images[pagePosition]),
                 );
               }
+            ),
+            Container(
+              width: double.maxFinite,
+              child: CupertinoSlider(
+                min: 0.0,
+                max: 100.0,
+                value: _value,
+                onChanged: (value) {
+                  setState(() {
+                    _value = value;
+                  });
+                },
+              ),
             ),
             ElevatedButton(
               onPressed: () {

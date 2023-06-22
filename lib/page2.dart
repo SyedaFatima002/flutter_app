@@ -37,11 +37,10 @@ class _Page2State extends State<Page2> {
       lastDate: DateTime(2023, 12, 31),
     );
 
-    if (picked != null && picked != _selectedDate) {
+    if (picked != null ) { //&& picked != _selectedDate
       setState(() {
         _selectedDate = picked;
-        _dateController.text = _selectedDate
-            .toString(); // Update the text field with the selected date
+        _dateController.text = _selectedDate.toString(); // Update the text field with the selected date
       });
     }
   }
