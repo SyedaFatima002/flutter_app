@@ -55,9 +55,6 @@ class _Page3State extends State<Page3> {
                 );
               }
             ),
-
-
-
             ElevatedButton(
               onPressed: () {
                 Navigator.pop(context);
