@@ -1,8 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:intl/intl.dart';
-import 'package:flutter_datetime_picker/flutter_datetime_picker.dart'
-    as dtPicker;
+//import 'package:flutter_datetime_picker/flutter_datetime_picker.dart'as dtPicker;
 
 class Page2 extends StatefulWidget {
   const Page2({super.key, required this.title});
@@ -26,6 +25,7 @@ class _Page2State extends State<Page2> {
   final TextEditingController _dateController = TextEditingController();
   final TextEditingController Controller = TextEditingController();
   late DateTime _selectedDate;
+  TimeOfDay time = TimeOfDay(hour: 10, minute: 30);
 
   void _selectDate(BuildContext context) async {
     final DateTime? picked = await showDatePicker(
@@ -101,7 +101,8 @@ class _Page2State extends State<Page2> {
                       labelText: "Enter Date" //label text of field
                       ),
                   readOnly: true, // when true user cannot edit text
-                  style: const TextStyle(fontSize: 20),
+                  style: const TextStyle(
+                      fontSize: 20, color: Color.fromARGB(255, 88, 24, 104)),
                   onTap: () async {
                     //when click we have to show the datepicker
                     _selectDate(context);
@@ -109,21 +110,21 @@ class _Page2State extends State<Page2> {
             ),
             // TextButton(
             //     onPressed: () {
-            //       dtPicker.DatePicker.showDatePicker(
+            //       DatePicker.showDatePicker(
             //         context,
             //         showTitleActions: true,
             //         minTime: DateTime(2000, 1, 1),
             //         maxTime: DateTime(2022, 12, 31),
-            //         theme: const dtPicker.DatePickerTheme(
-            //             headerColor: Color.fromARGB(255, 173, 132, 168),
-            //             backgroundColor: Color.fromARGB(255, 255, 255, 255),
-            //             itemStyle: TextStyle(
-            //                 color: Colors.white,
-            //                 fontWeight: FontWeight.bold,
-            //                 fontSize: 18),
-            //             doneStyle: TextStyle(
-            //                 color: Color.fromARGB(255, 107, 43, 93),
-            //                 fontSize: 16)),
+            //         // theme: const dtPicker.DatePickerTheme(
+            //         //     headerColor: Color.fromARGB(255, 173, 132, 168),
+            //         //     backgroundColor: Color.fromARGB(255, 255, 255, 255),
+            //         //     itemStyle: TextStyle(
+            //         //         color: Colors.white,
+            //         //         fontWeight: FontWeight.bold,
+            //         //         fontSize: 18),
+            //         //     doneStyle: TextStyle(
+            //         //         color: Color.fromARGB(255, 107, 43, 93),
+            //         //         fontSize: 16)),
             //         onChanged: (date) {
             //           print('change $date');
             //         },
@@ -137,7 +138,8 @@ class _Page2State extends State<Page2> {
             //     child: const Text(
             //       'Show date time picker',
             //       style: TextStyle(color: Colors.blue),
-            //     )),
+            //     )
+            // ),
             // TextField(
             //   controller: Controller, //editing controller of this TextField
             //   decoration: const InputDecoration(
@@ -147,6 +149,66 @@ class _Page2State extends State<Page2> {
             //   readOnly: true, // when true user cannot edit text
             //   style: const TextStyle(fontSize: 15),
             // ),
+            Text(
+              '${time.hour} : ${time.minute}',
+              style: TextStyle(fontSize: 30),
+            ),
+            ElevatedButton(
+              child: Text('Select Time'),
+              onPressed: () async {
+                TimeOfDay? newTime = await showTimePicker(
+                  context: context,
+                  initialTime: time,
+                );
+                if (newTime == null)
+                  return;
+                else {
+                  setState(() {
+                    time = newTime;
+                  });
+                }
+              },
+            ),
+            CarouselSlider(
+              items: [
+                //1st Image of Slider
+                Container(
+                  margin: const EdgeInsets.all(6.0),
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(8.0),
+                    image: const DecorationImage(
+                      image: NetworkImage("https://www.peakpx.com/en/hd-wallpaper-desktop-aplxa"),
+                      //Image.asset('images/image1.jpg'),
+                      fit: BoxFit.cover,
+                    ),
+                  ),
+                ),
+                  
+                //2nd Image of Slider
+                Container(
+                  margin: const EdgeInsets.all(6.0),
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(8.0),
+                    image: const DecorationImage(
+                      image: NetworkImage("https://www.peakpx.com/en/hd-wallpaper-desktop-aplxa"),
+                      fit: BoxFit.cover,
+                    ),
+                  ),
+                ),
+          ],
+              
+            //Slider Container properties
+              options: CarouselOptions(
+                height: 180.0,
+                enlargeCenterPage: true,
+                autoPlay: true,
+                aspectRatio: 16 / 9,
+                autoPlayCurve: Curves.fastOutSlowIn,
+                enableInfiniteScroll: true,
+                autoPlayAnimationDuration: Duration(milliseconds: 800),
+                viewportFraction: 0.8,
+              ),
+          ),
           ],
         ),
       ),
