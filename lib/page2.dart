@@ -190,7 +190,7 @@ class _Page2State extends State<Page2> {
                   decoration: BoxDecoration(
                     borderRadius: BorderRadius.circular(8.0),
                     image: const DecorationImage(
-                      image: NetworkImage("https://www.peakpx.com/en/hd-wallpaper-desktop-aplxa"),
+                      image: NetworkImage("https://unsplash.com/photos/e616t35Vbeg"),
                       fit: BoxFit.cover,
                     ),
                   ),
