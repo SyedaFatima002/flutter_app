@@ -20,6 +20,11 @@ class Page3 extends StatefulWidget {
 }
 
 class _Page3State extends State<Page3> {
+  List<String> images = [
+    "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQTIZccfNPnqalhrWev-Xo7uBhkor57_rKbkw&usqp=CAU",
+    "https://wallpaperaccess.com/full/2637581.jpg"
+  ];
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -39,6 +44,20 @@ class _Page3State extends State<Page3> {
                 color: Color.fromARGB(255, 171, 128, 182),
               ),
             ),
+
+            PageView.builder(
+              itemCount: 2,
+              pageSnapping: true,
+              itemBuilder: (context,pagePosition){
+                return Container(
+                  margin: EdgeInsets.all(10),
+                  child: Image.network(images[pagePosition])
+                );
+              }
+            ),
+
+
+
             ElevatedButton(
               onPressed: () {
                 Navigator.pop(context);
