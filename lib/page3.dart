@@ -24,6 +24,14 @@ class _Page3State extends State<Page3> {
     "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQTIZccfNPnqalhrWev-Xo7uBhkor57_rKbkw&usqp=CAU",
     "https://wallpaperaccess.com/full/2637581.jpg"
   ];
+  late PageController _pageController;
+  int activePage = 0;
+  
+  @override
+  void initState() {
+    super.initState();
+    _pageController = PageController(viewportFraction: 0.8);
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -46,12 +54,26 @@ class _Page3State extends State<Page3> {
             ),
 
             PageView.builder(
-              itemCount: 2,
+              // itemCount: 2,
+              // pageSnapping: true,
+              // itemBuilder: (context,pagePosition){
+              //   return Container(
+              //     margin: EdgeInsets.all(10),
+              //     child: Image.network(images[pagePosition])
+              //   );
+              // }
+              itemCount: images.length,
               pageSnapping: true,
-              itemBuilder: (context,pagePosition){
+              controller: _pageController,
+              onPageChanged: (page) {
+                setState(() {
+                  activePage = page;
+                });
+              },
+              itemBuilder: (context, pagePosition) {
                 return Container(
                   margin: EdgeInsets.all(10),
-                  child: Image.network(images[pagePosition])
+                  child: Image.network(images[pagePosition]),
                 );
               }
             ),
