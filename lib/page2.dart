@@ -169,45 +169,45 @@ class _Page2State extends State<Page2> {
                 }
               },
             ),
-            // CarouselSlider(
-            //   items: [
-            //     //1st Image of Slider
-            //     Container(
-            //       margin: const EdgeInsets.all(6.0),
-            //       decoration: BoxDecoration(
-            //         borderRadius: BorderRadius.circular(8.0),
-            //         image: const DecorationImage(
-            //           image: NetworkImage("https://www.peakpx.com/en/hd-wallpaper-desktop-aplxa"),
-            //           //Image.asset('images/image1.jpg'),
-            //           fit: BoxFit.cover,
-            //         ),
-            //       ),
-            //     ),
+            CarouselSlider(
+              items: [
+                //1st Image of Slider
+                Container(
+                  margin: const EdgeInsets.all(6.0),
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(8.0),
+                    image: const DecorationImage(
+                      image: NetworkImage("https://w0.peakpx.com/wallpaper/56/347/HD-wallpaper-under-water-bw-dark-ocean-summer-bokeh-sea.jpg"),
+                      //Image.asset('images/image1.jpg'),
+                      fit: BoxFit.cover,
+                    ),
+                  ),
+                ),
                   
-            //     //2nd Image of Slider
-            //     Container(
-            //       margin: const EdgeInsets.all(6.0),
-            //       decoration: BoxDecoration(
-            //         borderRadius: BorderRadius.circular(8.0),
-            //         image: const DecorationImage(
-            //           image: NetworkImage("https://unsplash.com/photos/e616t35Vbeg"),
-            //           fit: BoxFit.cover,
-            //         ),
-            //       ),
-            //     ),
-            //   ],
-            //   //Slider Container properties
-            //   options: CarouselOptions(
-            //     height: 180.0,
-            //     enlargeCenterPage: true,
-            //     autoPlay: true,
-            //     aspectRatio: 16 / 9,
-            //     autoPlayCurve: Curves.fastOutSlowIn,
-            //     enableInfiniteScroll: true,
-            //     autoPlayAnimationDuration: Duration(milliseconds: 800),
-            //     viewportFraction: 0.8,
-            //   ),
-            // ),
+                //2nd Image of Slider
+                Container(
+                  margin: const EdgeInsets.all(6.0),
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(8.0),
+                    image: const DecorationImage(
+                      image: NetworkImage("https://images.unsplash.com/photo-1575936123452-b67c3203c357?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=870&q=80"),
+                      fit: BoxFit.cover,
+                    ),
+                  ),
+                ),
+              ],
+              //Slider Container properties
+              options: CarouselOptions(
+                height: 180.0,
+                enlargeCenterPage: true,
+                autoPlay: true,
+                aspectRatio: 16 / 9,
+                autoPlayCurve: Curves.fastOutSlowIn,
+                enableInfiniteScroll: true,
+                autoPlayAnimationDuration: Duration(milliseconds: 800),
+                viewportFraction: 0.8,
+              ),
+            ),
 
           ElevatedButton(
               onPressed: () {
