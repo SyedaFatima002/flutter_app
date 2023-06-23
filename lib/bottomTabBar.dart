@@ -25,20 +25,6 @@ class bottomTabBar extends StatefulWidget {
 class _bottomTabBarState extends State<bottomTabBar> {
   int _currentIndex = 0;
   late List<Widget> _tabPages = [];
-  // static const List<Widget> _pages = <Widget>[
-  //   Icon(
-  //     Icons.call,
-  //     size: 150,
-  //   ),
-  //   Icon(
-  //     Icons.camera,
-  //     size: 150,
-  //   ),
-  //   Icon(
-  //     Icons.chat,
-  //     size: 150,
-  //   ),
-  // ];
 
   static const List<Widget> _pages = <Widget>[
     Icon(
@@ -55,15 +41,15 @@ class _bottomTabBarState extends State<bottomTabBar> {
     ),
   ];
   
-  // @override
-  // void initState() {
-  //   super.initState();
-  //   _tabPages = [
-  //     page1(),
-  //     page2(),
-  //     page3(),
-  //   ];
-  // }
+  @override
+  void initState() {
+    super.initState();
+    _tabPages = [
+      MyHomePage(title: 'Page 1',),
+      Page2(title: 'Page 2'),
+      Page3(title: 'Page 3'),
+    ];
+  }
 
   // page1() {
   //   Navigator.push(
@@ -96,7 +82,7 @@ class _bottomTabBarState extends State<bottomTabBar> {
       //   children: _pages,
       // ),
       body: Center(
-          child: _pages.elementAt(_currentIndex), //New
+          child: _tabPages.elementAt(_currentIndex), //New
           
       ),
       bottomNavigationBar: BottomNavigationBar(

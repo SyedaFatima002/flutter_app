@@ -17,34 +17,32 @@ class _topbarState extends State<topbar> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        flexibleSpace: const Column(
-          mainAxisAlignment: MainAxisAlignment.end,
-          children: [
-            TabBar(
+    return MaterialApp(
+     home: DefaultTabController(
+        length: 3, 
+        child: Scaffold(
+          appBar: AppBar(
+            bottom: const TabBar(
               tabs: [
-                Tab(
-                  text: 'Incoming',
-                ),
-                Tab(
-                  text: 'Outgoing',
-                ),
-                Tab(
-                  text: 'Missed',
-                ),
+                Tab(icon: Icon(Icons.directions_car)),
+                Tab(icon: Icon(Icons.directions_transit)),
+                Tab(icon: Icon(Icons.directions_bike)),
               ],
-            )
-          ],
+            ),
+          ),
+          body: const TabBarView(
+            children: [
+              MyHomePage(title: 'Page 1',),
+              Page2(title: 'Page 2'),
+              Page3(title: 'Page 3'),
+              // Icon(Icons.directions_car),
+              // Icon(Icons.directions_transit),
+              // Icon( Icons.directions_bike),
+            ],
+          ),
         ),
       ),
-      body: TabBarView(
-        children: [
-          // IncomingPage(),
-          // OutgoingPage(),
-          // MissedPage(),
-        ],
-      ),
+      
     );
   }
 }
